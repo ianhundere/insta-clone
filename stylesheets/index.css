@@ -12,34 +12,75 @@ html, body {
     width: 100%;
 }
 
-/* picture frame way to resize images */
-.thumb-item {
-    /* 1. controls size of the image */
-    height: 150px;
-    width: 30%;
-    margin-bottom: 20px;
-    /* outline: 1px solid red; */
-    /* alternative to using flexbox
-    for centering image or text
-    */
-    text-align: center;
-}
-
-.thumb-item > img {
-    /* the img adapts to its parent */
-    /* choose either the height or width, not both */
-    height: 100%;
-}
 .looks-good {
-    width: 90%;
-    /* outline: 5px solid red; */
+    width: 500px;
+    height: 500px;
     margin: 0 auto;
     text-align: center;
 }
 .looks-good > img {
+    width: 100%;
+    height: 100%;
+}
+
+.thumb-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+}
+
+.thumb-container > img{
+    display: flex;
+    flex-wrap: wrap;
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+/* 
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+} */ */
+
+/* picture frame way to resize images */
+/* .thumb-item { */
+    /* 1. controls size of the image */
+    /* height: 150px;
+    width: 30%;
+    margin-bottom: 20px; */
+    /* outline: 1px solid red; */
+    /* alternative to using flexbox
+    for centering image or text
+    */
+    /* text-align: center;
+}
+
+.thumb-item > img { */
+    /* the img adapts to its parent */
+    /* choose either the height or width, not both */
+    /* height: 100%;
+}
+.looks-good {
+    width: 90%; */
+    /* outline: 5px solid red; */
+    /* margin: 0 auto;
+    text-align: center;
+}
+.looks-good > img { */
     /* the img adapts to its parent */
     /* definitely, absolutely use both max-height and max-width */
-    max-height: 100%;
+    /* max-height: 100%;
     max-width: 100%;
 }
 
@@ -48,4 +89,4 @@ html, body {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
+ */
