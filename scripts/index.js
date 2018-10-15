@@ -1,19 +1,19 @@
+document.querySelector(".thumb-container").setAttribute("ondblclick", 'this.classList.toggle("toggle")');
 const instaArr = ['images/1.jpeg', 'images/2.jpeg', 'images/3.jpeg','images/4.jpeg',
     'images/5.jpeg', 'images/6.jpeg', 'images/7.jpeg', 'images/8.jpeg', 'images/9.jpeg'];
 const containerLarge = document.querySelector('.looks-good > img');
+const thumbContainer = document.querySelector('.thumb-container');
 
 renderThumbnails = (arr) => {
-    const thumbContainer = document.querySelector('.thumb-container');
-    arr.forEach(element => {
+    arr.forEach(image => {
         const thumbnail = document.createElement('img');
         thumbnail.setAttribute('alt', 'kids');
-        thumbnail.setAttribute('src', element);
+        thumbnail.setAttribute('src', image);
         thumbContainer.appendChild(thumbnail);
         thumbnail.addEventListener('click', (e) => {
-            console.log(e);
             containerLarge.setAttribute('src',e.target.src);
+            containerLarge.classList.toggle("toggle");
         });
-
     })
 }
 
