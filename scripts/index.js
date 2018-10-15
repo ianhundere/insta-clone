@@ -2,7 +2,6 @@ const instaArr = ['images/1.jpeg', 'images/2.jpeg', 'images/3.jpeg','images/4.jp
     'images/5.jpeg', 'images/6.jpeg', 'images/7.jpeg', 'images/8.jpeg', 'images/9.jpeg'];
 const containerLarge = document.querySelector('.looks-good > img');
 
-
 renderThumbnails = (arr) => {
     const thumbContainer = document.querySelector('.thumb-container');
     arr.forEach(element => {
