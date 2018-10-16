@@ -1,7 +1,23 @@
-const instaArr = ['images/1.jpeg', 'images/2.jpeg', 'images/3.jpeg','images/4.jpeg',
-    'images/5.jpeg', 'images/6.jpeg', 'images/7.jpeg', 'images/8.jpeg', 'images/9.jpeg'];
-const containerLarge = document.querySelector('.looks-good > img');
+const instaArr = [
+    'images/1.jpeg', 
+    'images/2.jpeg', 
+    'images/3.jpeg',
+    'images/4.jpeg',
+    'images/5.jpeg', 
+    'images/6.jpeg', 
+    'images/7.jpeg', 
+    'images/8.jpeg', 
+    'images/9.jpeg'
+];
+
+const largeContainer = document.querySelector('.looks-good > img');
 const thumbContainer = document.querySelector('.thumb-container');
+
+let realImgPath = instaArr.map(href => {
+    let link = document.createElement('a');
+    link.href = href;
+    return link.href;
+});
 
 renderThumbnails = (arr) => {
     arr.forEach(image => {
@@ -10,16 +26,45 @@ renderThumbnails = (arr) => {
         thumbnail.setAttribute('src', image);
         thumbContainer.appendChild(thumbnail);
         thumbnail.addEventListener('click', (e) => {
-            containerLarge.setAttribute('src',e.target.src);
-            containerLarge.classList.toggle("toggle");
+            // console.log(e);
+            largeContainer.setAttribute('src',e.target.src);
+            largeContainer.classList.toggle("toggle");
         });
-        containerLarge.addEventListener('click', () => {
-            containerLarge.classList.toggle("toggle");
-        })
-    })
-}
+    });
+};
+
+largeContainer.addEventListener('click', () => {
+    largeContainer.classList.add("toggle");
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.keyCode === 27) {
+        largeContainer.classList.add('toggle');
+    };
+});
+
+const changeImage = (dir) => {
+    const currentSrc = largeContainer.src;
+    let nextPosition = realImgPath.indexOf(currentSrc) + dir;
+    if (nextPosition > realImgPath.length - 1) nextPosition = 0;
+    if (nextPosition < 0) nextPosition = realImgPath.length - 1;
+    largeContainer.src = realImgPath[nextPosition];
+};
+
+window.addEventListener('keydown', (event) => {
+    if (event.keyCode === 39) {
+        changeImage(-1);
+    }
+    else if (event.keyCode === 37) {
+        changeImage(1);
+    }
+});
 
 renderThumbnails(instaArr);
+
+// function changeImage(dir) {
+//     largeContainer.src = instaArr[instaArr.indexOf(largeContainer.src) + dir] || instaArr[dir ? instaArr.length - 1 : 0];
+// }
 
 // const outputImg = document.querySelector('[data-img]');
 
