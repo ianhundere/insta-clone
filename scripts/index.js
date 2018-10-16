@@ -19,6 +19,27 @@ let realImgPath = instaArr.map(href => {
     return link.href;
 });
 
+largeContainer.classList.add('toggle');
+
+largeContainer.addEventListener('click', () => {
+    largeContainer.classList.add("toggle");
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.keyCode === 27) {
+        largeContainer.classList.add('toggle');
+    };
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.keyCode === 37) {
+        changeImage(-1);
+    }
+    else if (event.keyCode === 39) {
+        changeImage(1);
+    }
+});
+
 renderThumbnails = (arr) => {
     arr.forEach(image => {
         const thumbnail = document.createElement('img');
@@ -33,16 +54,6 @@ renderThumbnails = (arr) => {
     });
 };
 
-largeContainer.addEventListener('click', () => {
-    largeContainer.classList.add("toggle");
-});
-
-window.addEventListener('keydown', (event) => {
-    if (event.keyCode === 27) {
-        largeContainer.classList.add('toggle');
-    };
-});
-
 const changeImage = (dir) => {
     const currentSrc = largeContainer.src;
     let nextPosition = realImgPath.indexOf(currentSrc) + dir;
@@ -54,15 +65,6 @@ const changeImage = (dir) => {
     };
     largeContainer.src = realImgPath[nextPosition];
 };
-
-window.addEventListener('keydown', (event) => {
-    if (event.keyCode === 37) {
-        changeImage(-1);
-    }
-    else if (event.keyCode === 39) {
-        changeImage(1);
-    }
-});
 
 renderThumbnails(instaArr);
 
