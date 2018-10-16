@@ -46,25 +46,25 @@ window.addEventListener('keydown', (event) => {
 const changeImage = (dir) => {
     const currentSrc = largeContainer.src;
     let nextPosition = realImgPath.indexOf(currentSrc) + dir;
-    if (nextPosition > realImgPath.length - 1) nextPosition = 0;
-    if (nextPosition < 0) nextPosition = realImgPath.length - 1;
+    if (nextPosition > realImgPath.length - 1) {
+        nextPosition = 0
+    };
+    if (nextPosition < 0) {
+        nextPosition = realImgPath.length - 1
+    };
     largeContainer.src = realImgPath[nextPosition];
 };
 
 window.addEventListener('keydown', (event) => {
-    if (event.keyCode === 39) {
+    if (event.keyCode === 37) {
         changeImage(-1);
     }
-    else if (event.keyCode === 37) {
+    else if (event.keyCode === 39) {
         changeImage(1);
     }
 });
 
 renderThumbnails(instaArr);
-
-// function changeImage(dir) {
-//     largeContainer.src = instaArr[instaArr.indexOf(largeContainer.src) + dir] || instaArr[dir ? instaArr.length - 1 : 0];
-// }
 
 // const outputImg = document.querySelector('[data-img]');
 
