@@ -19,15 +19,15 @@ let realImgPath = instaArr.map(href => {
     return link.href;
 });
 
-largeContainer.classList.add('toggle');
+largeContainer.classList.add('hide');
 
 largeContainer.addEventListener('click', () => {
-    largeContainer.classList.add("toggle");
+    largeContainer.classList.add('hide');
 });
 
 window.addEventListener('keydown', (event) => {
     if (event.keyCode === 27) {
-        largeContainer.classList.add('toggle');
+        largeContainer.classList.add('hide');
     };
 });
 
@@ -49,7 +49,7 @@ renderThumbnails = (arr) => {
         thumbnail.addEventListener('click', (e) => {
             // console.log(e);
             largeContainer.setAttribute('src',e.target.src);
-            largeContainer.classList.toggle("toggle");
+            largeContainer.classList.toggle('hide');
         });
     });
 };
